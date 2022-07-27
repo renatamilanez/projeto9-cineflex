@@ -1,0 +1,26 @@
+@media (max-width: 600px){
+    .deck-movies{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .movie{
+        width: 145px;
+        height: 209px;
+        border-radius: 5px;
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 12px;
+        background-color: #ffffff;
+    }
+
+    .movie img{
+        width: 129px;
+        height: 193px;
+    }
+}    

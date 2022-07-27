@@ -1,0 +1,28 @@
+@media (max-width: 600px){
+    .time{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding-left: 12px;
+    }
+
+    .time p{
+        font-family: 'Roboto', sans-serif;
+        font-size: 20px;
+        font-weight: 400;
+        color: #000000;
+        margin-bottom: 22px;
+    }
+
+    .time button{
+        width: 83px;
+        height: 43px;
+        background-color: var(--color-orange);
+        color: #ffffff;
+        margin-bottom: 22px;
+        border: 1px solid var(--color-orange);
+        border-radius: 5px;
+        margin-right: 8px;
+    }
+}
