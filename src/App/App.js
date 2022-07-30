@@ -1,9 +1,10 @@
 import {useState} from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "../Home/Home";
+import {BrowserRouter, Routes, Route} from "react-router-dom";
 import "../assets/css/reset.css"
 import "./style.css";
-import ListMovies from "../ListMovies/ListMovies";
+import Home from "../Home/Home";
+import MovieTime from "../MovieTime/MovieTime";
+import MovieSessions from "../MovieSessions/MovieSessions";
 
 
 export default function App(){
@@ -16,7 +17,9 @@ export default function App(){
             </div>
             <Routes>
                 <Route path='/' element={<Home list={list} setList={setList} />}/>
+                <Route path='/filme/:movieId' element={<MovieTime list={list} setList={setList}/>}/>
+                <Route path='/sessao/:sessionId' element={<MovieSessions/>}/>
             </Routes>
-        </BrowserRouter>
+            </BrowserRouter>
     )
 }

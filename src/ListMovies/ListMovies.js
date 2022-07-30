@@ -1,17 +1,16 @@
-import { useEffect } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import {useEffect} from 'react';
+import {Link} from 'react-router-dom';
 import axios from 'axios';
-import Movie from "./Movie";
 import "./style.css";
 
 export default function ListMovies({list, setList}){
     useEffect(() => {
-        const promise = axios.get('https://mock-api.driven.com.br/api/v5/cineflex/movies');
+        const promise = axios.get('https://mock-api.driven.com.br/api/v7/cineflex/movies');
 
         promise.then(res => {
             setList(res.data);
         });
-    }, []);
+    }, [setList]);
 
     if (list.length === 0){
         return(
@@ -21,7 +20,13 @@ export default function ListMovies({list, setList}){
 
     return(
         <ul className="deck-movies">
-            {list.map(movie => <li key={movie.id}><Movie movie={movie}/></li>)}
+            {list.map(movie => (
+            <li key={movie.id}>        
+                <div className="movie">
+                    <Link to={`filme/${movie.id}`}><img src={movie.posterURL} alt=''/></Link>
+                </div>
+            </li>
+            ))}
         </ul>
     );
 }
