@@ -7,10 +7,10 @@ import Footer from "../Footer/Footer";
 
 export default function MovieTime(){
     const [sessions, setSessions] = useState(null);
-    const {movieId} = useParams();
+    const {idFilme} = useParams();
 
     useEffect(() => {
-        const promise = axios.get(`https://mock-api.driven.com.br/api/v7/cineflex/movies/${movieId}/showtimes`);
+        const promise = axios.get(`https://mock-api.driven.com.br/api/v7/cineflex/movies/${idFilme}/showtimes`);
 
         promise.then(res => {
             setSessions(res.data);
@@ -31,9 +31,9 @@ export default function MovieTime(){
             <div>
                 <Title title='Selecione o horário'/>
                 {movieSessions.map((session, index) => (
-                    <Time key={index} movieId={movieId} session={session}/>
+                    <Time key={index} session={session}/>
                 ))}
-                <Footer title={sessions.title}/>
+                <Footer title={sessions.title} poster={sessions.posterURL}/>
             </div>
     )
 }

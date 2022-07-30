@@ -10,25 +10,38 @@
         border-top: 1px solid #9EADBA;
         padding: 10px;
         display: flex;
-        justify-content: flex-start;
         align-items: center;
     }
 
     .footer h4{
         color: var(--color-text);
-        font-size: 26px;
+        font-size: 24px;
         font-weight: 400;
         margin-left: 14px;
+        margin-bottom: 8px;
+        flex-wrap: wrap;
     }
 
-    .footer .movie{
+    .footer .movie-resume{
         width: 64px;
         height: 89px;
         margin: 0;
     }
 
-    .footer .movie img{
+    .footer .movie-resume img{
         width: 48px;
         height: 72px;
     }
+
+    .movie-resume{
+        width: 64px;
+        height: 89px;
+        border-radius: 5px;
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #ffffff;
+    }
+
 }

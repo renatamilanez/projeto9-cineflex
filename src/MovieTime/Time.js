@@ -6,8 +6,8 @@ export default function Time({session}){
         <div className="time">
             <p>{session.weekday} - {session.date}</p>
             <div>
-                {session.showtimes.map(showtime => 
-                <Link to={`/sessao/${session.id}`}>
+                {session.showtimes.map((showtime, index) => 
+                <Link key={index} to={`/sessao/${showtime.id}`}>
                     <button>{showtime.name}</button>
                 </Link>
                 )}
