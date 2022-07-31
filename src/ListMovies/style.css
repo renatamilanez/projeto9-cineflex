@@ -23,4 +23,15 @@
         width: 129px;
         height: 193px;
     }
+
+    .loading{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .loading img{
+        width: 300px;
+    }
 }    

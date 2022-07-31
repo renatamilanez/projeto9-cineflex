@@ -24,8 +24,6 @@ export default function MovieTime(){
     }
 
     const movieSessions = sessions.days;
-    console.log(sessions);
-    console.log(movieSessions);
 
     return (
             <div>

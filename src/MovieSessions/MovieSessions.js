@@ -3,14 +3,14 @@ import {useState, useEffect} from "react";
 import axios from "axios";
 import Title from "../Title/Title";
 import Footer from "../Footer/Footer";
-import TemplateSeat from "./TempleateSeat";
 import "./style.css";
 import SubtitleSeats from "../SubtitleSeats/SubtitleSeats";
 import BuyerInfos from "../BuyerInfos/BuyerInfos";
+import loadingImage from "../assets/images/loading.gif";
+import OptionSeat from "./OptionSeat";
 
 export default function MovieSessions(){
     const [seats, setSeats] = useState(null);
-    const [selectedSeat, setSelectedSeat] = useState(true)
     const {idSessao} = useParams();
 
     useEffect(() => {
@@ -23,10 +23,12 @@ export default function MovieSessions(){
 
     if(seats === null){
         return(
-            <p>Carregando...</p>
+            <div className="loading">
+                <img src={loadingImage} alt=''/>
+            </div>
         )
     }
-    console.log(seats);
+
     const listSeats = seats.seats;
 
     return(
@@ -34,9 +36,10 @@ export default function MovieSessions(){
         <div className="container-seats">
             <Title title='Selecione o(s) assento(s)'/>
                 <div className="list-seats">
-                    {listSeats.map((seat, index) => 
-                        <TemplateSeat key={index} number={seat.name} selectedSeat={selectedSeat} setSelectedSeat={setSelectedSeat}/>
-                    )}
+                    {listSeats.map((seat, index) => {
+                        return(
+                        <OptionSeat index={index} seat={seat}/>
+                        )})}  
                 </div> 
         </div>
             <SubtitleSeats/>

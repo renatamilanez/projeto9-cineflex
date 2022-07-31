@@ -73,4 +73,16 @@
         font-size: 13px;
         font-weight: 400;
     }
+
+    .loading{
+        margin-top: 100px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .loading img{
+        width: 300px;
+    }
 }
