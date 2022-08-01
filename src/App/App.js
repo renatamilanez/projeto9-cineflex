@@ -9,6 +9,16 @@ import SucessPage from "../SucessPage/SucessPage";
 
 export default function App(){
     const [list, setList] = useState([]);
+    const [sessions, setSessions] = useState(null);
+    const [seats, setSeats] = useState(null);
+    const [sucessionTime, setSucessionTime] = useState('');
+    const sucessionSeats = [];
+
+    let userSeats = {	
+        ids: [],
+        name: '',
+        cpf: ''
+    };
 
     return(
         <BrowserRouter>
@@ -19,9 +29,9 @@ export default function App(){
             </Link>
             <Routes>
                 <Route path='/' element={<Home list={list} setList={setList} />}/>
-                <Route path='/filme/:idFilme' element={<MovieTime list={list} setList={setList}/>}/>
-                <Route path='/sessao/:idSessao' element={<MovieSessions/>}/>
-                <Route path='/sucesso' element={<SucessPage />}/>
+                <Route path='/filme/:idFilme' element={<MovieTime sessions={sessions} setSessions={setSessions} sucessionTime={sucessionTime} setSucessionTime={setSucessionTime}/>}/>
+                <Route path='/sessao/:idSessao' element={<MovieSessions userSeats={userSeats} seats={seats} setSeats={setSeats} sucessionSeats={sucessionSeats}/>}/>
+                <Route path='/sucesso' element={<SucessPage userSeats={userSeats} sessions={sessions} seats={seats} sucessionSeats={sucessionSeats} sucessionTime={sucessionTime} setSucessionTime={setSucessionTime}/>}/>
             </Routes>
             </BrowserRouter>
     )

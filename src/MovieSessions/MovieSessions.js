@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import {useState, useEffect} from "react";
+import {useEffect} from "react";
 import axios from "axios";
 import Title from "../Title/Title";
 import Footer from "../Footer/Footer";
@@ -9,8 +9,7 @@ import BuyerInfos from "../BuyerInfos/BuyerInfos";
 import loadingImage from "../assets/images/loading.gif";
 import OptionSeat from "./OptionSeat";
 
-export default function MovieSessions(){
-    const [seats, setSeats] = useState(null);
+export default function MovieSessions({userSeats, seats, setSeats, sucessionSeats}){
     const {idSessao} = useParams();
 
     useEffect(() => {
@@ -38,12 +37,12 @@ export default function MovieSessions(){
                 <div className="list-seats">
                     {listSeats.map((seat, index) => {
                         return(
-                        <OptionSeat index={index} seat={seat}/>
+                        <OptionSeat userSeats={userSeats} key={index} index={index} seat={seat} sucessionSeats={sucessionSeats}/>
                         )})}  
                 </div> 
         </div>
             <SubtitleSeats/>
-            <BuyerInfos />
+            <BuyerInfos userSeats={userSeats}/>
             <Footer title={seats.movie.title} weekday={seats.day.weekday} date={seats.day.date} poster={seats.movie.posterURL}/>
         </>
     )
