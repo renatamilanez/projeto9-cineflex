@@ -15,7 +15,7 @@ export default function MovieTime({sessions, setSessions, sucessionTime, setSuce
         promise.then(res => {
             setSessions(res.data);
         });
-    }, []);
+    }, [idFilme, setSessions]);
 
     if(sessions === null){
         return(

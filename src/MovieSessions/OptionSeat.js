@@ -26,11 +26,20 @@ export default function OptionSeat({index, seat, userSeats, sucessionSeats}){
         setSelectedSeat('selected');
         userSeats.ids.push(seat.id);
         sucessionSeats.push(seat.name);
+				userSeats.ids.sort((a,b) => a-b);
+				sucessionSeats.sort((a,b) => a-b);
     }
 
     function isRemoved(){
         setSelectedSeat('available');
         userSeats.ids = userSeats.ids.filter(item => item !== seat.id);
-        sucessionSeats = sucessionSeats.filter(item => item !== seat.id);
+				for(let i=0; i<sucessionSeats.length; i++){
+					if(sucessionSeats[i] === seat.name){
+						sucessionSeats.splice(i, 1);
+						break;
+					}
+				}
+				userSeats.ids.sort((a,b) => a-b);
+				sucessionSeats.sort((a,b) => a-b);
     }
 }
